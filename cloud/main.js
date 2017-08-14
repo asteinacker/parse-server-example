@@ -5,7 +5,7 @@ Parse.Cloud.define('hello', function(req, res) {
 
 Parse.Cloud.define('setProjectAssignmentsToFalse', function(req, res) {
   
-  const query = new Parse.Query("Review");
+  const query = new Parse.Query("competitorList");
   query.equalTo(req.params.header, true);
   .find()
   .then((results) => {
