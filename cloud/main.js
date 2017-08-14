@@ -5,9 +5,9 @@ Parse.Cloud.define('hello', function(req, res) {
 
 Parse.Cloud.define("updatePricingAssignments", function(request, response) {
     var query = new Parse.Query("competitorList");
-    query.equalTo(request.head, true);
+    query.equalTo(request.params.head, true);
     query.each(function (object) {
-        object.set(request.head, false);
+        object.set(request.params.head, false);
         object.save();
     }).then(function (success) {
         response.success("OK");
