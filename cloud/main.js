@@ -9,8 +9,8 @@ Parse.Cloud.define('setProjectAssignmentsToFalse', function(req, res) {
   query.equalTo(req.params.header, true);
   .find()
   .then((results) => {
-   let value = false;
-    for (let i = 0, i < results.length; ++i) {
+   var value = false;
+    for (var i = 0, i < results.length; ++i) {
       results[i].set(req.params.header, false);
       results[i].save();
     }
