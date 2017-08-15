@@ -34,5 +34,4 @@ Parse.Cloud.define("createNewCheckID", function(request, response) {
     }, function(err) {
         response.error(err);
     });
-    }
 });
