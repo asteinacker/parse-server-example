@@ -21,7 +21,7 @@ Parse.Cloud.define("createNewCheckID", function(request, response) {
     var query = new Parse.Query("competitorList");
     query.limit = (1000);
   
-    if !(competitorList.hasOwnProperty(request.params.head)){
+    if(!competitorList.hasOwnProperty(request.params.head)){
 
     
     query.each(function (object) {
