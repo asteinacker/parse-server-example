@@ -20,12 +20,14 @@ Parse.Cloud.define("updatePricingAssignments", function(request, response) {
 Parse.Cloud.define("createNewCheckID", function(request, response) {
     var query = new Parse.Query("competitorList");
     query.limit = (1000);
-  
-    if(!competitorList.hasOwnProperty(request.params.head)){
-
-    
     query.each(function (object) {
-        object.set(request.params.head, false);
+        
+        var status = false;
+        if (object.get(request.params.head) == true) {
+          status = true; 
+        }
+      
+        object.set(request.params.head, status);
         object.save();
     }).then(function (success) {
         response.success("OK");
